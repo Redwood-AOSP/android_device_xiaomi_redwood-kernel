@@ -70,7 +70,7 @@ struct snd_cea_861_aud_if {
 	unsigned char db2_sf_ss; /* sample frequency and size */
 	unsigned char db3; /* not used, all zeros */
 	unsigned char db4_ca; /* channel allocation code */
-	unsigned char db5_dminh_lsv; /* downmix inhibit & level-shit values */
+	unsigned char db5_dminh_lsv; /* downmix inhibit & level-shift values */
 };
 
 /****************************************************************************
@@ -965,7 +965,7 @@ struct snd_ctl_elem_value {
 struct snd_ctl_tlv {
 	unsigned int numid;	/* control element numeric identification */
 	unsigned int length;	/* in bytes aligned to 4 */
-	unsigned int tlv[0];	/* first TLV */
+	unsigned int tlv[];	/* first TLV */
 };
 
 #define SNDRV_CTL_IOCTL_PVERSION	_IOR('U', 0x00, int)

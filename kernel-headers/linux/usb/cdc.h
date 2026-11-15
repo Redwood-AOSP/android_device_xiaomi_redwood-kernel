@@ -171,7 +171,7 @@ struct usb_cdc_mdlm_detail_desc {
 
 	/* type is associated with mdlm_desc.bGUID */
 	__u8	bGuidDescriptorType;
-	__u8	bDetailData[0];
+	__u8	bDetailData[];
 } __attribute__ ((packed));
 
 /* "OBEX Control Model Functional Descriptor" */
@@ -232,7 +232,6 @@ struct usb_cdc_mbim_extended_desc {
 
 #define USB_CDC_SEND_ENCAPSULATED_COMMAND	0x00
 #define USB_CDC_GET_ENCAPSULATED_RESPONSE	0x01
-#define USB_CDC_RESET_FUNCTION			0x05
 #define USB_CDC_REQ_SET_LINE_CODING		0x20
 #define USB_CDC_REQ_GET_LINE_CODING		0x21
 #define USB_CDC_REQ_SET_CONTROL_LINE_STATE	0x22
@@ -380,7 +379,7 @@ struct usb_cdc_ncm_ndp16 {
 	__le32	dwSignature;
 	__le16	wLength;
 	__le16	wNextNdpIndex;
-	struct	usb_cdc_ncm_dpe16 dpe16[0];
+	struct	usb_cdc_ncm_dpe16 dpe16[];
 } __attribute__ ((packed));
 
 /* 32-bit NCM Datagram Pointer Entry */
@@ -396,7 +395,7 @@ struct usb_cdc_ncm_ndp32 {
 	__le16	wReserved6;
 	__le32	dwNextNdpIndex;
 	__le32	dwReserved12;
-	struct	usb_cdc_ncm_dpe32 dpe32[0];
+	struct	usb_cdc_ncm_dpe32 dpe32[];
 } __attribute__ ((packed));
 
 /* CDC NCM subclass 3.2.1 and 3.2.2 */
